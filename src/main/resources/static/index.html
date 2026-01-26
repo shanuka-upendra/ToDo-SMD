@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Todo App By SMD</title>
+</head>
+<body>
+<h1>Todo List ✅</h1>
+
+<div>
+    <input type="text" id="todoInput" placeholder="New task...">
+    <button onclick="addTodo()">Add</button>
+</div>
+
+<ul id="todoList">
+</ul>
+
+<script>
+    // We will write our JavaScript here!
+    const API_URL = "http://localhost:8080";
+
+    async function loadTodos() {
+    const response = await fetch("http://localhost:8080");
+    const todos = await response.json();
+    }
+
+    async function addTodo() {
+    const input = document.getElementById("todoInput");
+    const title = input.value;
+
+    // validating that the user actually typed something
+    if (!title) return;
+
+    await fetch(API_URL + "/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: title, completed: false })
+    });
+
+    // Clear input and reload list
+    input.value = "";
+    loadTodos();
+}
+
+    // Load tasks when page opens
+    loadTodos();
+</script>
+</body>
+</html>

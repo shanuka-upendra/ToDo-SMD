@@ -5,14 +5,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
+@CrossOrigin(origins = "*")
 public class TodoController {
 
     @Autowired
     TodoRepository todoRepository;
 
     @GetMapping("/")
-    List<Todo> hello(){
+    public List<Todo> getAll() {
         return todoRepository.findAll();
     }
 

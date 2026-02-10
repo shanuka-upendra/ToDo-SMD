@@ -61,6 +61,7 @@ http://localhost:8080
 ```
 
 ## 📂 Project Structure
+```
 ToDo-SMD/
 │
 ├── src/
@@ -76,7 +77,7 @@ ToDo-SMD/
 │
 ├── pom.xml
 └── README.md
-
+```
 ## 👨‍💻 Author
 Shanuka Upendra
 GitHub: shanuka-upendra
